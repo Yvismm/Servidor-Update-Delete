@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- Troque o nome aqui para mudar o texto da aba do navegador. -->
+  <title>Portal de Notícias</title>
+  <link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+  <a class="pular" href="#conteudo">Pular para o conteúdo</a>
+  <header class="cabecalho" id="topo">
+    <div class="largura barra">
+      <!-- Troque o nome visível do portal aqui e no rodapé. -->
+      <a class="marca" href="#topo">Portal de Notícias<span aria-hidden="true">.</span></a>
+      <!-- Para trocar o nome de uma seção, edite o texto do link.
+           Se mudar o href, ajuste também o id da seção correspondente. -->
+      <nav aria-label="Navegação principal">
+        <a href="#destaques">Destaques</a>
+        <a href="#ultimas">Últimas notícias</a>
+        <a href="#leia-tambem">Leia também</a>
+      </nav>
+    </div>
+  </header>
+
+  <main class="largura" id="conteudo">
+    <section id="destaques" aria-labelledby="titulo-destaques">
+      <h1 id="titulo-destaques">Destaques</h1>
+      <!-- Para colocar uma foto, retire os marcadores de comentário da tag img e troque o caminho em src.
+           Crie a pasta imagens ao lado deste HTML e guarde a foto nela.
+           Preencha alt se a foto transmitir informação relevante; se for decorativa, mantenha alt="".
+           Troque o texto entre as tags h2 para editar o título da notícia. -->
+      <div class="grade-destaques">
+        <article class="cartao cartao-principal">
+          <div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div>
+          <div class="texto-cartao">
+            <h2>Título da notícia principal</h2>
+            <!-- Escreva um resumo entre as tags p e retire hidden para exibi-lo. -->
+            <p hidden></p>
+          </div>
+        </article>
+
+        <article class="cartao">
+          <div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div>
+          <div class="texto-cartao"><h2>Título do segundo destaque</h2></div>
+        </article>
+
+        <article class="cartao">
+          <div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div>
+          <div class="texto-cartao"><h2>Título do terceiro destaque</h2></div>
+        </article>
+      </div>
+    </section>
+
+    <div class="grade-noticias">
+      <section id="ultimas" aria-labelledby="titulo-ultimas">
+        <h2 class="titulo-secao" id="titulo-ultimas">Últimas notícias</h2>
+        <!-- Duplique ou remova um article inteiro para mudar a quantidade de notícias.
+             A foto segue a mesma regra dos destaques: retire os marcadores de comentário da tag img e troque o caminho em src.
+             Se tiver uma página para a matéria, envolva o título em <a href="materia.html">...</a>. -->
+        <article class="noticia">
+          <div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div>
+          <div><h3>Título da notícia</h3><p hidden></p></div>
+        </article>
+        <article class="noticia">
+          <div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div>
+          <div><h3>Título da notícia</h3><p hidden></p></div>
+        </article>
+        <article class="noticia">
+          <div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div>
+          <div><h3>Título da notícia</h3><p hidden></p></div>
+        </article>
+      </section>
+
+      <aside id="leia-tambem" aria-labelledby="titulo-lateral">
+        <h2 id="titulo-lateral">Leia também</h2>
+        <!-- Edite os títulos e adicione fotos do mesmo jeito que nas outras notícias.
+             Duplique um li inteiro para colocar outro item nesta seção. -->
+        <ul>
+          <li><div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div><h3>Título da notícia relacionada</h3></li>
+          <li><div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div><h3>Título da notícia relacionada</h3></li>
+          <li><div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div><h3>Título da notícia relacionada</h3></li>
+          <li><div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div><h3>Título da notícia relacionada</h3></li>
+          <li><div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div><h3>Título da notícia relacionada</h3></li>
+          <li><div class="foto"><!-- <img src="imagens/minha-foto.jpg" alt=""> --></div><h3>Título da notícia relacionada</h3></li>
+        </ul>
+      </aside>
+    </div>
+  </main>
+
+  <footer class="rodape">
+    <div class="largura barra">
+      <span>Portal de Notícias</span>
+      <a href="#topo">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+  <script src="servidor.js"></script>
+</body>
+</html>
+

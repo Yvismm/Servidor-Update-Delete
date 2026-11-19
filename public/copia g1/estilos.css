@@ -1,0 +1,115 @@
+/* Cores e fontes gerais. Altere estes valores para mudar a identidade do portal. */
+:root {
+  --fundo: #f5f3ec;
+  --papel: #fffdf7;
+  --texto: #211d29;
+  --suave: #595362;
+  --marca: #332645;
+  --acento: #aa3d24;
+  --acento-claro: #ffab87;
+  --linha: #dcd6cd;
+  --reserva: #e6dfeb;
+  --fonte: system-ui, sans-serif;
+  --fonte-titulos: Georgia, serif;
+  --largura: 1160px;
+  --espaco: 20px;
+  --raio: 6px;
+}
+
+* { box-sizing: border-box; }
+html { scroll-padding-top: 20px; }
+body {
+  margin: 0;
+  color: var(--texto);
+  background: var(--fundo);
+  font: 1rem/1.55 var(--fonte);
+}
+a { color: inherit; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid currentColor; outline-offset: 4px; }
+h1, h2, h3 { margin: 0; font-family: var(--fonte-titulos); line-height: 1.15; }
+p { margin: 12px 0 0; color: var(--suave); }
+.largura { width: min(calc(100% - 40px), var(--largura)); margin-inline: auto; }
+.pular { position: absolute; top: 8px; left: 8px; padding: 8px; background: var(--papel); }
+.pular:not(:focus) { clip-path: inset(50%); }
+
+/* Cabeçalho e rodapé. Ajuste a altura pela propriedade padding da barra. */
+.cabecalho, .rodape { color: var(--papel); background: var(--marca); }
+.cabecalho { border-bottom: 4px solid var(--acento-claro); }
+.barra { display: flex; justify-content: space-between; align-items: center; gap: var(--espaco); padding-block: 20px; }
+.marca { font: bold clamp(1.5rem, 4vw, 2.35rem)/1.1 var(--fonte-titulos); text-decoration: none; }
+.marca span { color: var(--acento-claro); }
+nav { display: flex; flex-wrap: wrap; gap: 8px 24px; }
+nav a { font-size: .9rem; font-weight: 650; text-decoration: none; }
+
+/* Manchetes. A primeira coluna abriga a principal. Ajuste as frações para redimensionar as duas colunas. */
+main { padding-block: 38px 60px; }
+h1, .titulo-secao { padding-bottom: 12px; margin-bottom: var(--espaco); border-bottom: 1px solid var(--linha); }
+h1 { font-size: clamp(2rem, 5vw, 3.25rem); }
+.titulo-secao { font-size: clamp(1.7rem, 4vw, 2.35rem); }
+.grade-destaques {
+  display: grid;
+  grid-template-columns: 1.55fr 1fr;
+  grid-template-rows: repeat(2, minmax(180px, auto));
+  gap: var(--espaco);
+}
+.cartao {
+  display: grid;
+  grid-template-columns: 42% minmax(0, 1fr);
+  border: 1px solid var(--linha);
+  border-radius: var(--raio);
+  background: var(--papel);
+  overflow: hidden;
+}
+.cartao-principal {
+  grid-row: span 2;
+  grid-template-columns: minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
+}
+.cartao-principal .foto { min-height: 240px; }
+.texto-cartao { align-self: center; padding: clamp(14px, 2.5vw, 28px); overflow-wrap: anywhere; }
+.cartao h2 { font-size: clamp(1.2rem, 2.3vw, 1.65rem); }
+.cartao-principal h2 { color: var(--marca); font-size: clamp(1.8rem, 4vw, 3.3rem); }
+
+/* Fotos. cover preenche a área com recorte. Use contain para mostrar a foto inteira.
+   Mude object-position para ajustar o enquadramento, por exemplo: center top.
+   O fundo abaixo ocupa o espaço até você inserir uma foto no HTML. */
+.foto { position: relative; background: linear-gradient(135deg, var(--reserva), var(--fundo)); }
+.foto img { position: absolute; width: 100%; height: 100%; inset: 0; object-fit: cover; object-position: center; }
+
+/* Lista de notícias e coluna lateral. Ajuste as frações para mudar a largura de cada bloco. */
+.grade-noticias {
+  display: grid;
+  align-items: start;
+  grid-template-columns: minmax(0, 2.3fr) minmax(0, 1fr);
+  gap: clamp(20px, 4vw, 52px);
+  margin-top: 52px;
+}
+.noticia {
+  display: grid;
+  grid-template-columns: minmax(0, 35%) minmax(0, 1fr);
+  align-items: center;
+  gap: var(--espaco);
+  padding-bottom: 16px;
+  margin-bottom: 16px;
+  border-bottom: 1px solid var(--linha);
+}
+.noticia .foto { aspect-ratio: 16 / 9; border-radius: var(--raio); overflow: hidden; }
+.noticia h3 { color: var(--acento); font-size: clamp(1.1rem, 3vw, 1.5rem); }
+aside { background: var(--papel); border: 1px solid var(--linha); border-top: 4px solid var(--acento); border-radius: var(--raio); padding: var(--espaco); }
+aside h2 { font-size: 1.45rem; }
+aside ul { margin: 14px 0 0; padding: 0; list-style: none; }
+aside li { display: grid; grid-template-columns: 52px minmax(0, 1fr); align-items: center; gap: 12px; padding-block: 12px; border-top: 1px solid var(--linha); }
+aside .foto { aspect-ratio: 1; border-radius: var(--raio); overflow: hidden; }
+aside h3 { font-size: 1rem; }
+.noticia h3, aside h3 { overflow-wrap: anywhere; }
+
+/* Celular. Mude 760px para antecipar ou adiar a troca para uma única coluna. */
+@media (max-width: 760px) {
+  .barra { align-items: flex-start; flex-direction: column; gap: 12px; }
+  .grade-destaques, .grade-noticias { grid-template-columns: minmax(0, 1fr); }
+  .grade-destaques { grid-template-rows: none; }
+  .cartao { min-height: 125px; }
+  .cartao-principal { grid-row: auto; }
+  .cartao-principal .foto { min-height: 0; aspect-ratio: 16 / 9; }
+}
